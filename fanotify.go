@@ -48,7 +48,7 @@ func (fw *FanotifyWatcher) Add(path string) error {
 	err := unix.FanotifyMark(
 		fw.fd,
 		unix.FAN_MARK_ADD|unix.FAN_MARK_MOUNT,
-		unix.FAN_CLOSE_WRITE,
+		unix.FAN_CLOSE_WRITE|unix.FAN_MOVED_TO,
 		unix.AT_FDCWD,
 		path,
 	)
